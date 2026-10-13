@@ -5,13 +5,15 @@ comments and documents. A doctrine of clauses, a policy for each
 judgement, cases that test the judge, one check that needs no model, and
 a skill that writes to the doctrine.
 
+This repository is a gnome: it implements the gnome protocol, which
+bugflow's `docs/policy-package.md` specifies.
+
 Two things read this repository and nothing in it is written for one
 alone:
 
 - **A bugflow server** judges pull requests by it when a binding
   repository deploys it, with `declarations.toml` saying which
-  repositories it applies to. bugflow's `docs/policy-package.md` says
-  what the server reads.
+  repositories it applies to.
 
 - **A garden node** declares it as a methodology, beneath its
   methodologies path, at a directory named `narrative`:
@@ -32,7 +34,7 @@ alone:
 | `policies/<ID>-<name>.md` | One policy each: header, instructions, calibration notes |
 | `cases/<ID>/*.md` | The cases of policy `<ID>`: an example pull request and the answer a correct judge gives |
 | `cases/README.md` | Where the older cases came from, and what their names mean |
-| `manifest.md` | The product's id, subjects, policies and checks |
+| `manifest.md` | The gnome's id, subjects, policies and checks |
 | `bin/narrative-em-dash` | The check that answers ED-04 without a model |
 | `lib/` | What the check uses |
 | `skills/narrative-write/` | The skill that drafts and checks prose against the doctrine |

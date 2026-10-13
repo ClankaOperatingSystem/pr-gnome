@@ -1,4 +1,4 @@
-"""Check every file of the product against the formats the server
+"""Check every file of the gnome against the formats the server
 and the calibration command read, before a pull request is opened.
 
 The server checks a deployment when a pull request is opened, but it
