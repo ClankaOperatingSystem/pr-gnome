@@ -5,7 +5,7 @@ policies: CM-01, CM-02, ED-01, ED-02, ED-03, ED-04, ED-05, PR-04, SC-01, SC-02
 checks: em-dash ED-04 VOICE-21
 ---
 
-This file describes the product to whatever reads it. The lines above
+This file describes the gnome to whatever reads it. The lines above
 the three dashes are read by a bugflow server and by the format tests;
 the text below is for a person.
 
