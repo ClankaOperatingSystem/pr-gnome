@@ -1,0 +1,15 @@
+#!/bin/sh
+# Report findings as FILE:LINE: MESSAGE over the Org and Markdown files
+# beneath the working directory; exit 0 clean, 1 findings, 2 could not
+# check. The policy ED-04 says what it reports.
+real=$0
+while [ -L "$real" ]; do
+  link=$(readlink "$real")
+  case $link in
+    /*) real=$link ;;
+    *) real=$(dirname "$real")/$link ;;
+  esac
+done
+M=$(cd "$(dirname "$real")/.." && pwd)
+. "$M/lib/files.sh"
+run_check "$M" em-dash.awk
