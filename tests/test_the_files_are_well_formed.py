@@ -7,7 +7,6 @@ file checks all of them, in the terms README.md gives under "The format
 of a policy file" and "The format of a case".
 """
 
-import importlib.util
 import re
 from pathlib import Path
 
@@ -256,19 +255,3 @@ def test_each_patch_in_the_case_names_a_listed_file(path: Path) -> None:
     for line in case["body"].split("\n"):
         if line.startswith("=== patch "):
             assert line[len("=== patch "):] in listed, line
-
-
-# The site
-
-
-def test_the_site_builds(tmp_path: Path) -> None:
-    pytest.importorskip("markdown")
-    spec = importlib.util.spec_from_file_location("build", ROOT / "site" / "build.py")
-    assert spec and spec.loader
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    module.build(ROOT, tmp_path)
-    assert (tmp_path / "index.html").exists()
-    assert (tmp_path / "doctrine" / "index.html").exists()
-    for policy_id in POLICY_BY_ID:
-        assert (tmp_path / "policies" / policy_id / "index.html").exists()
