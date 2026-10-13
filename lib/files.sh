@@ -1,11 +1,14 @@
 # Run one check's awk over the Org and Markdown files beneath the working
 # directory: everything but archives, attics, methodologies, hidden and
-# underscore directories and node_modules. M is the methodology's
-# directory. Findings are sorted; exit 0 clean, 1 with findings.
+# underscore directories, node_modules, and any directory that is a git
+# repository of its own, since a repository mounted in a tree is a
+# product and not the tree's canon. M is the methodology's directory.
+# Findings are sorted; exit 0 clean, 1 with findings.
 run_check() {
   M=$1; awkfile=$2
   found=$(find . \( -name archives -o -name attic -o -name methodologies \
-                    -o -name node_modules -o -name '_*' -o -name '.?*' \) -prune -o \
+                    -o -name node_modules -o -name '_*' -o -name '.?*' \
+                    -o \( -path './*' -type d -exec test -e '{}/.git' \; \) \) -prune -o \
                \( -name '*.org' -o -name '*.md' \) -type f \
                -exec awk -f "$M/lib/prose.awk" -f "$M/lib/$awkfile" {} +)
   status=$?
