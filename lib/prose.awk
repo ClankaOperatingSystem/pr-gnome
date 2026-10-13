@@ -13,6 +13,7 @@ FNR == 1 { skip = 0; drawer = 0 }
 skip || drawer { next }
 { judge(FILENAME, FNR, $0) }
 function report(file, line, message, text) {
+  sub(/^\.\//, "", file)
   sub(/^[ \t]+/, "", text)
   if (length(text) > 80) text = substr(text, 1, 80)
   print file ":" line ": " message ": " text
