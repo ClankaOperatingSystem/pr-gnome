@@ -6,7 +6,9 @@ judgement, cases that test the judge, one check that needs no model, and
 a skill that writes to the doctrine.
 
 This repository is a gnome: it implements the gnome protocol, which
-bugflow's `docs/policy-package.md` specifies.
+bugflow's [policy package](https://github.com/bugflow/bugflow/blob/master/docs/policy-package.md) specifies.
+[What a gnome is](https://github.com/bugflow/bugflow/blob/master/docs/gnomes.md) explains a gnome's parts, who reads each,
+and a maintainer's tasks.
 
 Two things read this repository and nothing in it is written for one
 alone:
@@ -59,46 +61,10 @@ alone:
 - Calibration: one run of a policy over all of its cases. The command is
   a server's; the figures go in the policy's calibration notes.
 
-## The format of a policy file
+## The formats
 
-A header, a line of three dashes, the instructions, a line
-`=== calibration`, and the calibration notes. The header lines:
-
-- `policy_id`: the policy's id. The filename opens with it.
-- `subject`: what the policy judges, in two or three words.
-- `summary`: one sentence that says what a compliant pull request does.
-- `model_class`: `small`, `medium` or `large`.
-- `evidence`: the part of the pull request the model is shown:
-  `description`, `commits`, `scope` or `patches`.
-- `quotable_name`: the name of the text a finding may quote from.
-- `graded`: `yes` when the model is asked a grade for each finding.
-- `quotes_code`: `yes` when a quote may come from a patch.
-- `ceiling`: the worst grade a finding may carry; absent, `fail`.
-- `clause`: one clause the policy judges, its id and name. It repeats.
-
-## The format of a case
-
-A header, a line of three dashes, and the description of the example
-pull request:
-
-    title: Retry the judge on a timeout
-    expect: GIT-4
-    grade: fail
-    why: The body names a second change with a reason of its own.
-    commit: Retry the judge on a timeout
-    |
-    | Also renames the poller's settings.
-    file: src/judge.py +12 -3
-    ---
-    Retries the judge once when the model does not answer in time.
-    === patch src/judge.py
-    @@ -40,3 +40,12 @@
-
-`expect` is the clause a correct judge reports, empty in a clean case;
-`grade` the grade it gives; `why` the reason, which the judge is not
-shown; `commit` one commit's summary with the lines after it that open
-with `|` the rest of its message; `file` one changed file's path and line
-counts; `=== patch <path>` the patch of a file the header lists.
+The [policy package](https://github.com/bugflow/bugflow/blob/master/docs/policy-package.md) specifies the manifest, a policy file
+and a case. The tests here check every file against it.
 
 ## Checks
 
