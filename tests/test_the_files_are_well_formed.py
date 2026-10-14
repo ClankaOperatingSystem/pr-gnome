@@ -14,7 +14,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWER = ROOT
-SKILL = ROOT / "skills" / "narrative-write"
+SKILL = ROOT / "skills" / "pr-gnome-write"
 POLICIES = sorted((SKILL / "references" / "policies").glob("*.md"))
 DOCTRINE = sorted((SKILL / "references" / "doctrine").glob("*.md"))
 CASES = sorted((REVIEWER / "cases").glob("*/*.md"))
@@ -185,7 +185,7 @@ def test_each_check_has_a_script_in_the_skill() -> None:
 
 def test_every_skill_carries_the_gnomes_prefix() -> None:
     for skill in (ROOT / "skills").iterdir():
-        assert skill.name.startswith("narrative-"), skill.name
+        assert skill.name.startswith("pr-gnome-"), skill.name
         assert (skill / "SKILL.md").is_file()
 
 

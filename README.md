@@ -1,4 +1,4 @@
-# The narrative doctrine
+# pr-gnome
 
 Standards for written work: commit messages, pull request descriptions,
 comments and documents. A doctrine of clauses, a policy for each
@@ -21,10 +21,10 @@ alone:
   tag:
 
       methodologies:
-        - source: git@github.com:ClankaOperatingSystem/narrative-doctrine.git
+        - source: git@github.com:ClankaOperatingSystem/pr-gnome.git
           ref: TAG
 
-  The skills command-line tool copies `skills/narrative-write/` into the
+  The skills command-line tool copies `skills/pr-gnome-write/` into the
   garden's skills, and the garden's lint runs the check in its
   `scripts/`.
 
@@ -32,11 +32,11 @@ alone:
 
 | Path | What it is |
 |---|---|
-| `skills/narrative-write/` | The skill that drafts and checks prose against the doctrine |
-| `skills/narrative-write/references/doctrine/*.md` | The doctrine, read in filename order as one document |
-| `skills/narrative-write/references/policies/<ID>-<name>.md` | One policy each: header, instructions, calibration notes |
-| `skills/narrative-write/scripts/check-em-dash` | The check that answers ED-04 without a model |
-| `skills/narrative-write/scripts/lib/` | What the check uses |
+| `skills/pr-gnome-write/` | The skill that drafts and checks prose against the doctrine |
+| `skills/pr-gnome-write/references/doctrine/*.md` | The doctrine, read in filename order as one document |
+| `skills/pr-gnome-write/references/policies/<ID>-<name>.md` | One policy each: header, instructions, calibration notes |
+| `skills/pr-gnome-write/scripts/check-em-dash` | The check that answers ED-04 without a model |
+| `skills/pr-gnome-write/scripts/lib/` | What the check uses |
 | `cases/<ID>/*.md` | The cases of policy `<ID>`: an example pull request and the answer a correct judge gives |
 | `cases/README.md` | Where the older cases came from, and what their names mean |
 | `manifest.md` | The gnome's id, subjects, policies and checks |

@@ -1,6 +1,6 @@
 ---
-name: narrative-write
-description: Draft and check prose against the narrative doctrine before it goes out. Load before writing any commit message, pull request description, decision record, task entry, docstring or reply in a repository that declares this methodology.
+name: pr-gnome-write
+description: Draft and check prose against the pr-gnome doctrine before it goes out. Load before writing any commit message, pull request description, decision record, task entry, docstring or reply in a repository that installs this skill.
 ---
 
 # Write to the doctrine
