@@ -14,8 +14,9 @@ import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 REVIEWER = ROOT
-POLICIES = sorted((REVIEWER / "policies").glob("*.md"))
-DOCTRINE = sorted((REVIEWER / "doctrine").glob("*.md"))
+SKILL = ROOT / "skills" / "narrative-write"
+POLICIES = sorted((SKILL / "references" / "policies").glob("*.md"))
+DOCTRINE = sorted((SKILL / "references" / "doctrine").glob("*.md"))
 CASES = sorted((REVIEWER / "cases").glob("*/*.md"))
 
 POLICY_REQUIRED = (
@@ -172,6 +173,20 @@ def test_the_reviewer_lists_each_policy_file_and_each_check() -> None:
 def test_each_check_reports_under_a_clause_the_doctrine_has() -> None:
     for name, policy_id, clause_id in reviewer_of()["checks"]:
         assert clause_id in CLAUSE_IDS, f"{name} reports under {clause_id}"
+
+
+def test_each_check_has_a_script_in_the_skill() -> None:
+    for name, policy_id, clause_id in reviewer_of()["checks"]:
+        assert (SKILL / "scripts" / f"check-{name}").is_file(), f"no check-{name}"
+
+
+# The skills
+
+
+def test_every_skill_carries_the_gnomes_prefix() -> None:
+    for skill in (ROOT / "skills").iterdir():
+        assert skill.name.startswith("narrative-"), skill.name
+        assert (skill / "SKILL.md").is_file()
 
 
 # The cases

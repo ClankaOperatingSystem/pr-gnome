@@ -17,35 +17,39 @@ alone:
   repository deploys it, with `declarations.toml` saying which
   repositories it applies to.
 
-- **A garden node** declares it as a methodology, beneath its
-  methodologies path, at a directory named `narrative`:
+- **A garden** declares it as a methodology in its configuration, at a
+  tag:
 
-      children:
-        - path: methodologies/narrative
-          remote: git@github.com:ClankaOperatingSystem/narrative-doctrine.git
+      methodologies:
+        - source: git@github.com:ClankaOperatingSystem/narrative-doctrine.git
+          ref: TAG
 
-  The node's tree tool links `skills/narrative-write` into its skills and
-  the check in `bin/` into its commands, and its lint runs the check that
-  `methodology.yaml` names. poslib's `doc/pos-methodology.txt` says how.
+  The skills command-line tool copies `skills/narrative-write/` into the
+  garden's skills, and the garden's lint runs the check in its
+  `scripts/`.
 
 ## What is here
 
 | Path | What it is |
 |---|---|
-| `doctrine/*.md` | The doctrine, read in filename order as one document |
-| `policies/<ID>-<name>.md` | One policy each: header, instructions, calibration notes |
+| `skills/narrative-write/` | The skill that drafts and checks prose against the doctrine |
+| `skills/narrative-write/references/doctrine/*.md` | The doctrine, read in filename order as one document |
+| `skills/narrative-write/references/policies/<ID>-<name>.md` | One policy each: header, instructions, calibration notes |
+| `skills/narrative-write/scripts/check-em-dash` | The check that answers ED-04 without a model |
+| `skills/narrative-write/scripts/lib/` | What the check uses |
 | `cases/<ID>/*.md` | The cases of policy `<ID>`: an example pull request and the answer a correct judge gives |
 | `cases/README.md` | Where the older cases came from, and what their names mean |
 | `manifest.md` | The gnome's id, subjects, policies and checks |
-| `bin/narrative-em-dash` | The check that answers ED-04 without a model |
-| `lib/` | What the check uses |
-| `skills/narrative-write/` | The skill that drafts and checks prose against the doctrine |
-| `methodology.yaml` | The declaration a garden's lint reads: the check to run |
 | `tests/` | The checks that every file is in the format the consumers read |
+
+The doctrine, the policies and the check are inside the skill's
+directory because the skills command-line tool copies a skill's
+directory and nothing outside it.
 
 ## Words
 
-- Doctrine: the standard, in `doctrine/`, joined in filename order.
+- Doctrine: the standard, in `references/doctrine/`, joined in filename
+  order.
 - Clause: one rule of the doctrine, with an id such as `VOICE-6`. An id
   is never reused.
 - Policy: one question asked about a pull request, and the clauses it
@@ -70,6 +74,6 @@ and a case. The tests here check every file against it.
 
     uv run --with pytest pytest -q
 
-checks every file against the formats. `bin/narrative-em-dash` runs in
+checks every file against the formats. `scripts/check-em-dash` runs in
 any directory, reads its Org and Markdown files, and prints findings as
 `FILE:LINE: MESSAGE`, exit 1 when there are any.
