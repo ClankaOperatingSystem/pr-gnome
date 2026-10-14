@@ -3,8 +3,8 @@ and the calibration command read, before a pull request is opened.
 
 The server checks a deployment when a pull request is opened, but it
 reads only the policies, the doctrine and the manifest. Nothing else reads the cases until a calibration runs. This
-file checks all of them, in the terms README.md gives under "The format
-of a policy file" and "The format of a case".
+file checks all of them, in the terms bugflow's docs/policy-package.md
+gives.
 """
 
 import re
