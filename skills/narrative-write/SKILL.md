@@ -5,14 +5,13 @@ description: Draft and check prose against the narrative doctrine before it goes
 
 # Write to the doctrine
 
-The doctrine is in this methodology's `doctrine/` directory, beside the
-`skills/` directory this file is in; its policies are in `policies/`.
-Read the doctrine from the checkout at the start of the session, before
-the first piece of prose, so the clauses in force are the current ones.
-Do not work from memory of them.
+The doctrine is in `references/doctrine/`, beside this file, and its
+policies are in `references/policies/`. Read the doctrine at the start
+of the session, before the first piece of prose, so the clauses in force
+are the current ones. Do not work from memory of them.
 
 Then, for every piece of prose, draft it and apply each policy in
-`policies/` to the draft as the policy's instructions say, before it is
+`references/policies/` to the draft as the policy's instructions say, before it is
 sent. Each policy is a rewrite, not a glance:
 
 1. ED-01, the editorial voice: no marketing register, filler, hedging,
@@ -28,7 +27,7 @@ sent. Each policy is a rewrite, not a glance:
 5. SC-01 and SC-02, scope: one reason per commit and per pull request.
 6. PR-04, honesty: the description claims nothing the patches do not
    show.
-7. ED-04: no em dashes; `narrative-em-dash` finds them.
+7. ED-04: no em dashes; `scripts/check-em-dash` finds them.
 
 Then strike each sentence in turn. If no fact leaves with it, it stays
 struck.
