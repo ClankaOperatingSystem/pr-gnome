@@ -23,5 +23,5 @@ reads the comments and docstrings they add.
   only when the server's declarations also list it for that repository.
 - `checks` names a check that a server performs in code: the check's name,
   the policy it answers and the clause its findings cite. ED-04, the em
-  dash check, has no policy file; in a garden the command
-  `narrative-em-dash` in `bin/` answers it under the lint.
+  dash check, has no policy file; in a garden the script
+  `skills/narrative-write/scripts/check-em-dash` answers it under the lint.

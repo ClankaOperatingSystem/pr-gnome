@@ -10,6 +10,6 @@ while [ -L "$real" ]; do
     *) real=$(dirname "$real")/$link ;;
   esac
 done
-M=$(cd "$(dirname "$real")/.." && pwd)
-. "$M/lib/files.sh"
-run_check "$M" em-dash.awk
+D=$(cd "$(dirname "$real")" && pwd)
+. "$D/lib/files.sh"
+run_check "$D" em-dash.awk
