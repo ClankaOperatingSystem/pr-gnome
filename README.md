@@ -77,9 +77,11 @@ and a case. The tests here check every file against it.
 
     uv run --with pytest pytest -q
 
-checks every file against the formats. `scripts/check-em-dash` runs in
-any directory, reads its Org and Markdown files, and prints findings as
-`FILE:LINE: MESSAGE`, exit 1 when there are any.
+checks every file against the formats. `make check` runs the same
+command, and GitHub Actions runs it on each pull request and each push
+to `master`. `scripts/check-em-dash` runs in any directory, reads its
+Org and Markdown files, and prints findings as `FILE:LINE: MESSAGE`,
+exit 1 when there are any.
 
 ## Licence
 
