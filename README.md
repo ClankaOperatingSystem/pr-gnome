@@ -21,7 +21,7 @@ alone:
   tag:
 
       methodologies:
-        - source: git@github.com:ClankaOperatingSystem/pr-gnome.git
+        - source: https://github.com/ClankaOperatingSystem/pr-gnome.git
           ref: TAG
 
   The skills command-line tool copies `skills/pr-gnome-write/` into the
@@ -77,3 +77,8 @@ and a case. The tests here check every file against it.
 checks every file against the formats. `scripts/check-em-dash` runs in
 any directory, reads its Org and Markdown files, and prints findings as
 `FILE:LINE: MESSAGE`, exit 1 when there are any.
+
+## Licence
+
+This repository is free software under the GNU General Public License,
+version 3 or any later version. The text is in `COPYING`.
