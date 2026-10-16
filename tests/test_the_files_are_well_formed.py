@@ -9,16 +9,29 @@ policies is what tools/compile.py writes.
 """
 
 import filecmp
+import importlib.util
 import re
-import sys
 import tempfile
 from pathlib import Path
 
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
-from compile import compile_skills  # noqa: E402
+
+
+def _compile_skills():
+    """tools/compile.py's compile_skills, loaded by path under a name
+    of its own, so that a run over several gnomes' tests in one
+    session does not take another gnome's module for this one's."""
+    spec = importlib.util.spec_from_file_location(
+        f"{ROOT.name}_compile", ROOT / "tools" / "compile.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.compile_skills
+
+
+compile_skills = _compile_skills()
 
 REVIEWER = ROOT
 SKILL = ROOT / "skills" / "pr-gnome-write"
