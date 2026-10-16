@@ -128,6 +128,9 @@ grade right.
 of 13 seeded both times.
 - 2026-10-12: VOICE-28 was added, with three seeded and three clean
 cases. Not measured.
+- 2026-10-16: a seeded case and a clean case for a phrase that hangs off
+the wrong noun, which the judge passed on a real pull request. Not
+measured.
 
 Known weakness: on 2026-09-16 its findings on real pull requests were
 read and about half were wrong. Fourteen of the twenty-four under
