@@ -25,8 +25,8 @@ sent. Each policy is a rewrite, not a glance:
 4. CM-01 and CM-02, commit summaries: imperative mood, one change, read
    the opening words alone for a phrase the summary does not mean.
 5. SC-01 and SC-02, scope: one reason per commit and per pull request.
-6. PR-04, honesty: the description claims nothing the patches do not
-   show.
+6. PR-04, the description matches the diff: it claims nothing the
+   patches do not show.
 7. ED-04: no em dashes; `scripts/check-em-dash` finds them.
 
 Then strike each sentence in turn. If no fact leaves with it, it stays
