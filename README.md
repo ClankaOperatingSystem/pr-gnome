@@ -32,24 +32,27 @@ alone:
 
 | Path | What it is |
 |---|---|
+| `doctrine/*.md` | The doctrine, read in filename order as one document |
+| `policies/<ID>-<name>.md` | One policy each: header, instructions, calibration notes |
 | `skills/pr-gnome-write/` | The skill that drafts and checks prose against the doctrine |
-| `skills/pr-gnome-write/references/doctrine/*.md` | The doctrine, read in filename order as one document |
-| `skills/pr-gnome-write/references/policies/<ID>-<name>.md` | One policy each: header, instructions, calibration notes |
+| `skills/pr-gnome-write/references/` | A copy of `doctrine/` and `policies/`, written by `make skills` |
 | `skills/pr-gnome-write/scripts/check-em-dash` | The check that answers ED-04 without a model |
 | `skills/pr-gnome-write/scripts/lib/` | What the check uses |
 | `cases/<ID>/*.md` | The cases of policy `<ID>`: an example pull request and the answer a correct judge gives |
 | `cases/README.md` | Where the older cases came from, and what their names mean |
 | `manifest.md` | The gnome's id, subjects, policies and checks |
+| `tools/compile.py` | What `make skills` runs |
 | `tests/` | The checks that every file is in the format the consumers read |
 
-The doctrine, the policies and the check are inside the skill's
-directory because the skills command-line tool copies a skill's
-directory and nothing outside it.
+The doctrine and the policies are kept in `doctrine/` and `policies/`.
+The skills command-line tool copies a skill's directory and nothing
+outside it, so the skill carries a copy of both in its `references/`.
+After a change in `doctrine/` or `policies/`, run `make skills`. The
+tests fail if the copy is out of date.
 
 ## Words
 
-- Doctrine: the standard, in `references/doctrine/`, joined in filename
-  order.
+- Doctrine: the standard, in `doctrine/`, joined in filename order.
 - Clause: one rule of the doctrine, with an id such as `VOICE-6`. An id
   is never reused.
 - Policy: one question asked about a pull request, and the clauses it
