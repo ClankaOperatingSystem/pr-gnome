@@ -73,6 +73,26 @@ tests fail if the copy is out of date.
 The [policy package](https://github.com/bugflow/bugflow/blob/master/docs/policy-package.md) specifies the manifest, a policy file
 and a case. The tests here check every file against it.
 
+## Adding a case
+
+A case is one example pull request and the answer a correct judge
+gives it. The policy package specifies the header and the body. In
+this repository:
+
+- Put it in `cases/<ID>/`, the directory of the policy it tests, named
+  `clean-NN-name.md` or `seeded-NN-name.md`, where `NN` is the next
+  number in that directory.
+- In a seeded case, give `expect` one clause that the policy's header
+  lists, and `grade` the grade a correct judge gives. In a clean case,
+  leave `expect` empty.
+- Say in `why`, in one sentence, what makes the case clean or seeded.
+  The judge is not shown it.
+- Use invented names for people, files and records.
+- Add a dated line to the policy's calibration notes saying what was
+  added and that it is not measured.
+
+`make check` checks the new file against the format.
+
 ## Checks
 
     uv run --with pytest pytest -q
