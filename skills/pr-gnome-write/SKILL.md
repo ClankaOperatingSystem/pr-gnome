@@ -24,6 +24,10 @@ sent. Each policy is a rewrite, not a glance:
    running prose.
 4. CM-01 and CM-02, commit summaries: imperative mood, one change, read
    the opening words alone for a phrase the summary does not mean.
+   `scripts/check-commit-messages -` reads a message on standard input
+   and reports what GIT-3 says a program can find: the length, a
+   conventional-commit prefix, a first word that is not imperative,
+   and the blank line and wrapping of the body.
 5. SC-01 and SC-02, scope: one reason per commit and per pull request.
 6. PR-04, the description matches the diff: it claims nothing the
    patches do not show.
