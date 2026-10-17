@@ -1,0 +1,41 @@
+schema = 1
+introduction = "Make a change easier to review: say what it does, keep its scope clear and write useful commit messages."
+scope = "pr-gnome addresses the writing around a change: its description, commits, scope, comments and docstrings. Its policies and examples make those standards open to inspection."
+outside_scope = "These standards do not establish functional correctness, security or adequate testing of the changed software. Those need their own controls."
+
+[resources]
+glossary = "https://github.com/bugflow/bugflow/blob/master/docs/words.md"
+guide = "https://github.com/bugflow/bugflow/blob/master/docs/gnomes.md"
+adoption = "https://github.com/bugflow/bugflow/blob/master/docs/gnomes.md#after-a-change-is-merged"
+format = "https://github.com/bugflow/bugflow/blob/master/docs/policy-package.md#a-case"
+
+[sources]
+readme = "README.md"
+skill = "skills/pr-gnome-write/SKILL.md"
+
+[example]
+title = "Describe what the change does"
+policy = "ED-01"
+before = "seeded-01-marketing"
+after = "clean-01-poller"
+explanation = "Compare praise for a poller with a description of its behaviour and a counted test result. The case explanations show why one passage fails the standard and the other complies."
+
+[[checks]]
+title = "Check prose for em dashes"
+audience = "author"
+policy = "ED-04"
+command = "cd /path/to/your/work\n/path/to/pr-gnome/skills/pr-gnome-write/scripts/check-em-dash"
+source = "skills/pr-gnome-write/scripts/check-em-dash"
+purpose = "This script checks Org and Markdown prose. It answers the em-dash rule; it does not run the model policies."
+
+[[checks]]
+title = "Rebuild the skill references"
+command = "make skills"
+source = "Makefile"
+purpose = "After editing the root doctrine or policies, regenerate the copies that the writing skill carries."
+
+[[checks]]
+title = "Validate a standards change"
+command = "make check"
+source = "Makefile"
+purpose = "Check the source formats, case expectations, generated skill references and deterministic checks."

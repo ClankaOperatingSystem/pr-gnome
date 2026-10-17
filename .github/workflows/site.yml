@@ -1,0 +1,58 @@
+name: Website
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: website-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install renderer and source checks
+        run: python -m pip install -r requirements-site.txt pytest
+      - name: Check the gnome sources
+        run: python -m pytest -q
+      - name: Build the current site
+        env:
+          REPOSITORY: ${{ github.repository }}
+        run: >-
+          gnome-site . _site --title pr-gnome
+          --repository "https://github.com/$REPOSITORY"
+          --revision "$(git rev-parse HEAD)" --content site.toml
+      - name: Upload preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-gnome-site
+          path: _site/
+          if-no-files-found: error
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site/
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Deploy current site
+        id: deployment
+        uses: actions/deploy-pages@v4
