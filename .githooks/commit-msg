@@ -1,0 +1,4 @@
+#!/bin/sh
+# Run the attribution gate on the message being committed. make hooks
+# points core.hooksPath here.
+exec "$(git rev-parse --show-toplevel)/tools/attribution-gate" "$1"

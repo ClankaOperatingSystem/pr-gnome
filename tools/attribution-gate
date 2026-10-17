@@ -1,0 +1,44 @@
+#!/bin/sh
+# attribution-gate [FILE | RANGE]
+# The gate that ATTR-2 of the doctrine has each repository wire: fail
+# closed on AI attribution in a commit message, the trailers, lines
+# and names that ATTR-1 forbids. With FILE, read one message from it,
+# as .githooks/commit-msg does. With RANGE, read the message of each
+# commit in that git range. With neither, read origin/master..HEAD.
+# Each offending line is printed as NAME:LINE: TEXT, NAME the file or
+# the commit. Exit 0 none, 1 found, 2 could not read.
+set -u
+
+pattern='^co-authored-by:'
+pattern="$pattern|generated (with|by)"
+pattern="$pattern|^[a-z-]*session[a-z-]*:"
+pattern="$pattern|https?://[^ ]*session"
+pattern="$pattern|(^|[^a-z0-9])(claude|codex|copilot|chatgpt|aider|windsurf|devin|opencode)([^a-z0-9]|\$)"
+
+# scan NAME: read a message on stdin, print its offending lines under
+# NAME, and return 1 when there are any. Lines that open with # are
+# comments Git strips before the commit.
+scan() {
+    found=$(grep -v '^#' | grep -n -i -E "$pattern") || return 0
+    printf '%s\n' "$found" | sed "s|^\([0-9]*\):|$1:\1: |"
+    return 1
+}
+
+case $# in
+    0) range=origin/master..HEAD ;;
+    1)
+        if [ -f "$1" ]; then
+            scan "$1" < "$1"
+            exit $?
+        fi
+        range=$1
+        ;;
+    *) echo "Usage: attribution-gate [FILE | RANGE]" >&2; exit 2 ;;
+esac
+
+commits=$(git rev-list "$range") || exit 2
+status=0
+for commit in $commits; do
+    git log -1 --format=%B "$commit" | scan "$(git rev-parse --short "$commit")" || status=1
+done
+exit $status
