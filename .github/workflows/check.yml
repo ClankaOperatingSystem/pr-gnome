@@ -12,3 +12,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
       - run: make check
+
+  attribution:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: tools/attribution-gate ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}

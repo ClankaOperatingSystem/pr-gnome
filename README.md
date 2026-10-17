@@ -42,6 +42,7 @@ alone:
 | `cases/README.md` | Where the older cases came from, and what their names mean |
 | `manifest.md` | The gnome's id, subjects, policies and checks |
 | `tools/compile.py` | What `make skills` runs |
+| `tools/attribution-gate`, `.githooks/commit-msg` | The gate that fails a commit message carrying AI attribution |
 | `tests/` | The checks that every file is in the format the consumers read |
 
 The doctrine and the policies are kept in `doctrine/` and `policies/`.
@@ -102,6 +103,20 @@ command, and GitHub Actions runs it on each pull request and each push
 to `master`. `scripts/check-em-dash` runs in any directory, reads its
 Org and Markdown files, and prints findings as `FILE:LINE: MESSAGE`,
 exit 1 when there are any.
+
+## The attribution gate
+
+ATTR-2 of the doctrine has each repository enforce ATTR-1 with a gate
+of its own, on the client and in CI. Here it is `tools/attribution-gate`,
+which fails when a commit message carries a `Co-Authored-By` trailer, a
+"Generated with" line, a session trailer or URL, or the name of a
+coding agent; the names are listed in the script. Once per clone,
+
+    make hooks
+
+points Git's hooks at `.githooks/`, whose `commit-msg` hook runs the
+gate on each message. GitHub Actions runs it over the commits of each
+pull request.
 
 ## Licence
 
