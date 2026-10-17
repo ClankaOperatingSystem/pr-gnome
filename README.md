@@ -5,20 +5,25 @@ comments and documents. A doctrine of clauses, a policy for each
 judgement, cases that test the judge, one check that needs no model, and
 a skill that writes to the doctrine.
 
-This repository is a gnome: it implements the gnome protocol, which
-bugflow's [policy package](https://github.com/bugflow/bugflow/blob/master/docs/policy-package.md) specifies.
-[What a gnome is](https://github.com/bugflow/bugflow/blob/master/docs/gnomes.md) explains a gnome's parts, who reads each,
-and a maintainer's tasks.
+This repository is a gnome: a methodology that also holds a doctrine,
+its policies and its cases. bugflow's
+[What a gnome is](https://github.com/bugflow/bugflow/blob/master/docs/gnomes.md)
+defines a gnome and a maintainer's tasks, its
+[policy package](https://github.com/bugflow/bugflow/blob/master/docs/policy-package.md)
+specifies each file, and its
+[words](https://github.com/bugflow/bugflow/blob/master/docs/words.md)
+give each term one line.
 
 Two things read this repository and nothing in it is written for one
 alone:
 
 - **A bugflow server** judges pull requests by it when a binding
-  repository deploys it, with `declarations.toml` saying which
-  repositories it applies to.
+  deploys it. bugflow's
+  [review document](https://github.com/bugflow/bugflow/blob/master/docs/review.md)
+  says what a review writes and where each part comes from.
 
 - **A garden** declares it as a methodology in its configuration, at a
-  tag:
+  tag, as ClankOS's `clankos-run help install` says:
 
       methodologies:
         - source: https://github.com/ClankaOperatingSystem/pr-gnome.git
@@ -46,34 +51,9 @@ alone:
 | `tools/attribution-gate`, `.githooks/commit-msg` | The gate that fails a commit message carrying AI attribution |
 | `tests/` | The checks that every file is in the format the consumers read |
 
-The doctrine and the policies are kept in `doctrine/` and `policies/`.
-The skills command-line tool copies a skill's directory and nothing
-outside it, so the skill carries a copy of both in its `references/`.
-After a change in `doctrine/` or `policies/`, run `make skills`. The
-tests fail if the copy is out of date.
-
-## Words
-
-- Doctrine: the standard, in `doctrine/`, joined in filename order.
-- Clause: one rule of the doctrine, with an id such as `VOICE-6`. An id
-  is never reused.
-- Policy: one question asked about a pull request, and the clauses it
-  judges. ED-04 is a check and has no file.
-- Subject: the evidence a policy reads: `pull-request/description`,
-  `pull-request/commits`, `pull-request/scope` or `pull-request/patches`.
-  A policy file names the kind alone, `description`, as the server reads
-  it.
-- Case: an example pull request with the answer a correct judge gives
-  it. A `clean` case expects nothing; a `seeded` case expects one clause.
-- Finding: one thing a judge or a check reports, quoting the words at
-  fault and citing a clause, graded `warn` or `fail`.
-- Calibration: one run of a policy over all of its cases. The command is
-  a server's; the figures go in the policy's calibration notes.
-
-## The formats
-
-The [policy package](https://github.com/bugflow/bugflow/blob/master/docs/policy-package.md) specifies the manifest, a policy file
-and a case. The tests here check every file against it.
+`doctrine/` and `policies/` are the originals. After a change in
+either, run `make skills`, which writes the skill's copy in its
+`references/`; the tests fail if the copy is out of date.
 
 ## Adding a case
 
