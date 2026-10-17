@@ -1,0 +1,50 @@
+#!/bin/sh
+# check-commit-messages [RANGE | -]
+# Report what GIT-3 of the doctrine says of a commit message and a
+# program can tell: a summary over 72 characters, a conventional-commit
+# prefix, a first word that is not imperative, a second line that is
+# not blank, and a body line over 72 characters. With RANGE, read the
+# message of each commit in that git range; with -, one message on
+# standard input. With neither, read origin/master..HEAD, and nothing
+# where there is no origin/master. Findings are printed as
+# NAME: GIT-3 MESSAGE, NAME the commit's short hash or "message".
+# Exit 0 clean, 1 findings, 2 could not read.
+set -u
+
+real=$0
+while [ -L "$real" ]; do
+  link=$(readlink "$real")
+  case $link in
+    /*) real=$link ;;
+    *) real=$(dirname "$real")/$link ;;
+  esac
+done
+D=$(cd "$(dirname "$real")" && pwd)
+
+# check NAME: read a message on stdin and print its findings under NAME.
+check() {
+  grep -v '^#' | LC_ALL=C awk -v name="$1" -f "$D/lib/commit-message.awk"
+}
+
+case $# in
+  0)
+    git rev-parse -q --verify origin/master > /dev/null 2>&1 || exit 0
+    range=origin/master..HEAD ;;
+  1)
+    if [ "$1" = - ]; then
+      check message
+      exit $?
+    fi
+    range=$1 ;;
+  *)
+    echo "Usage: check-commit-messages [RANGE | -]" >&2
+    exit 2 ;;
+esac
+
+commits=$(git rev-list --reverse "$range") || exit 2
+status=0
+for commit in $commits; do
+  short=$(git rev-parse --short "$commit") || exit 2
+  git log -1 --format=%B "$commit" | check "$short" || status=1
+done
+exit $status

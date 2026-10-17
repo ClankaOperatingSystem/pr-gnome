@@ -37,7 +37,8 @@ alone:
 | `skills/pr-gnome-write/` | The skill that drafts and checks prose against the doctrine |
 | `skills/pr-gnome-write/references/` | A copy of `doctrine/` and `policies/`, written by `make skills` |
 | `skills/pr-gnome-write/scripts/check-em-dash` | The check that answers ED-04 without a model |
-| `skills/pr-gnome-write/scripts/lib/` | What the check uses |
+| `skills/pr-gnome-write/scripts/check-commit-messages` | The check of the commit message rules of GIT-3 that need no model |
+| `skills/pr-gnome-write/scripts/lib/` | What the checks use |
 | `cases/<ID>/*.md` | The cases of policy `<ID>`: an example pull request and the answer a correct judge gives |
 | `cases/README.md` | Where the older cases came from, and what their names mean |
 | `manifest.md` | The gnome's id, subjects, policies and checks |
@@ -102,7 +103,10 @@ checks every file against the formats. `make check` runs the same
 command, and GitHub Actions runs it on each pull request and each push
 to `master`. `scripts/check-em-dash` runs in any directory, reads its
 Org and Markdown files, and prints findings as `FILE:LINE: MESSAGE`,
-exit 1 when there are any.
+exit 1 when there are any. `scripts/check-commit-messages` reads the
+messages of the commits in `origin/master..HEAD`, or of a range it is
+given, or one message on standard input with `-`, and prints findings
+as `COMMIT: GIT-3 MESSAGE`.
 
 ## The attribution gate
 
