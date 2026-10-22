@@ -81,9 +81,10 @@ this repository:
 
 checks every file against the formats. `make check` runs the same
 command, and GitHub Actions runs it on each pull request and each push
-to `master`. `scripts/check-em-dash` runs in any directory, reads its
-Org and Markdown files, and prints findings as `FILE:LINE: MESSAGE`,
-exit 1 when there are any. `scripts/check-commit-messages` reads the
+to `master`. `scripts/check-em-dash` reads the files it is given, or the
+text on standard input with `-`, or with neither the Org and Markdown
+files of the directory it runs in, and prints findings as
+`FILE:LINE: MESSAGE`, exit 1 when there are any. `scripts/check-commit-messages` reads the
 messages of the commits in `origin/master..HEAD`, or of a range it is
 given, or one message on standard input with `-`, and prints findings
 as `COMMIT: GIT-3 MESSAGE`.

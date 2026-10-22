@@ -31,7 +31,8 @@ sent. Each policy is a rewrite, not a glance:
 5. SC-01 and SC-02, scope: one reason per commit and per pull request.
 6. PR-04, the description matches the diff: it claims nothing the
    patches do not show.
-7. ED-04: no em dashes; `scripts/check-em-dash` finds them.
+7. ED-04: no em dashes; `scripts/check-em-dash -` finds them in text on
+   standard input, and `scripts/check-em-dash FILE` in a file.
 
 Then strike each sentence in turn. If no fact leaves with it, it stays
 struck.
