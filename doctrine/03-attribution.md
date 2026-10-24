@@ -7,7 +7,7 @@ Commit messages and pull request descriptions carry no AI attribution: no
 without exception and cannot be overridden.
 
 **ATTR-2. The gate enforces it.** ATTR-1 is enforced by a deterministic gate, on the client at
-commit time and again in CI, failing closed. The gate is the control. A model
+commit time and again in CI, failing closed. A model
 that follows the rule does not replace the gate, because a model does not
 follow a rule every time. Each repository wires
 its own gate and names it in its own instructions.

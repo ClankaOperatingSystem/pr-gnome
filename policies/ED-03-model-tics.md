@@ -22,7 +22,7 @@ Judge only these clauses:
 it sits
 - VOICE-20: three parallel items where one or two carry the meaning
 - VOICE-22: telling the reader what they think or want
-- VOICE-24: slop vocabulary, a word arriving instead of a thought
+- VOICE-24: slop vocabulary, a word in the place of the specific one
 - VOICE-25: a change justified by its own availability
 - VOICE-26: a list whose items are ranked or flavoured before they are
 given
@@ -92,6 +92,8 @@ every grade right, two extra clauses.
 10 of 14 seeded, four grades wrong, one extra clause.
 - 2026-09-19, claude-sonnet-5, two runs: 11 of 11 clean and 13 of 14
 seeded both times, with two grades wrong, then one.
+- 2026-10-24: the VOICE-24 line of the clause list was reworded. Not
+  measured.
 
 Known weakness: VOICE-27. On 2026-09-16 about two of its twelve VOICE-27
 findings on real pull requests were right. The instructions now give the
