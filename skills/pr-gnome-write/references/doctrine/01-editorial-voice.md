@@ -23,9 +23,6 @@ Do not bullet-point prose to make it look organised.
 
 ## What not to write
 
-This list grows. When a review finds a fault that no clause names, a clause
-is added here.
-
 **VOICE-6. Marketing register.** No "robust", "seamless", "powerful",
 "elegant", "comprehensive", "battle-tested", "first-class" as praise,
 "blazing fast", "delightful", "leverage" as a verb, "utilise". Describe the
@@ -117,9 +114,8 @@ word:
 "leverage" for "use", "utilise" for "use", "honest" for "accurate", "delve", "unpack", "landscape",
 "realm", "tapestry", "testament to", "journey", "seamlessly", "robustly",
 "holistic", "synergy", "paradigm", "game-changing", "best-in-class",
-"cutting-edge", "elevate", "empower", "unlock", "supercharge". The list
-grows as new ones appear; each entry adds nothing to the sentence it is
-in.
+"cutting-edge", "elevate", "empower", "unlock", "supercharge". Each entry
+adds nothing to the sentence it is in.
 
 **VOICE-25. Because we can.** A change justified by its own availability is
 not justified. No "because we can", no "why not", no "it seemed like a good

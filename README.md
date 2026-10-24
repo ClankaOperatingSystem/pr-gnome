@@ -75,6 +75,14 @@ this repository:
 
 `make check` checks the new file against the format.
 
+## Adding a clause
+
+When a review finds a fault that no clause names, add a clause under
+"What not to write" in the doctrine, with the next unused id. A new
+slop word goes on the VOICE-24 list. A policy judges the clause only
+once its header lists it, and a seeded case and a clean case show the
+judge the difference.
+
 ## Checks
 
     uv run --with pytest pytest -q
