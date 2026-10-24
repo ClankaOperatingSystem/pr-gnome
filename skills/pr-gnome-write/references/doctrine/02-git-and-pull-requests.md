@@ -34,8 +34,8 @@ intermediate states would not build or would not make sense.
 
 What is forbidden is two reasons in one change. Two unrelated things that
 could each have been committed, reviewed and reverted on their own belong in
-two commits. The sign is that each half is a change someone could describe. A body that needs the word "also" is one sign, and it appears only when the
-author wrote the word. A summary that names a group of changes, such as "fix
+two commits. The sign is that each half is a change someone could describe. A body that needs the word "also" is another sign, and a body without the
+word proves nothing. A summary that names a group of changes, such as "fix
 the ugly parts of the parser" or "various cleanups", has the same fault.
 
 Related work can also be too much. A change whose parts genuinely belong
