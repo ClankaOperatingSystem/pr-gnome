@@ -12,7 +12,7 @@ are the current ones. Do not work from memory of them.
 
 Then, for every piece of prose, draft it and apply each policy in
 `references/policies/` to the draft as the policy's instructions say, before it is
-sent. Each policy is a rewrite, not a glance:
+sent. Each policy is applied as a rewrite:
 
 1. ED-01, the editorial voice: no marketing register, filler, hedging,
    padding or narrating yourself; name what a reference refers to; give a
