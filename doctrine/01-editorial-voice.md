@@ -105,7 +105,7 @@ needs one or two. "It is faster, cleaner, and more maintainable" says
 "faster" and adds two words that state nothing. Each item in a list must
 state a separate fact.
 
-**VOICE-21. Em dashes.** Use a colon, a comma, a semicolon, or a full stop.
+**VOICE-21. Em dashes.** Use a colon, a comma or a full stop.
 A sentence with an em dash is almost always two sentences. Write two.
 
 **VOICE-22. Telling the reader what they think.** No "and that is what you
