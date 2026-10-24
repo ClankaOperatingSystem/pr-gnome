@@ -49,7 +49,7 @@ alone:
 | `manifest.md` | The gnome's id, subjects, policies and checks |
 | `tools/compile.py` | What `make skills` runs |
 | `tools/attribution-gate`, `.githooks/commit-msg` | The gate that fails a commit message carrying AI attribution |
-| `tests/` | The checks that every file is in the format the consumers read |
+| `tests/` | The tests of the formats the consumers read |
 
 `doctrine/` and `policies/` are the originals. After a change in
 either, run `make skills`, which writes the skill's copy in its
