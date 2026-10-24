@@ -113,12 +113,15 @@ pull request.
 
 ## Website
 
-[Read the current standards](https://clankaoperatingsystem.github.io/pr-gnome/).
-The site includes worked examples and paths for contributors, maintainers and
-people assessing the standards. Its reader guidance is in `site.toml`.
+The standards are published at
+<https://clankaoperatingsystem.github.io/pr-gnome/>. The site renders
+the standards, with a worked example from the cases and the commands
+that check a change. The text the site adds, its introduction, its
+scope and the example, is in `site.toml`.
 
-`requirements-site.txt` pins the renderer release and its wheel checksum.
-To build locally, install that file and run this from a clean checkout:
+`requirements-site.txt` pins the renderer release and its wheel
+checksum. To build the site, install that file and run this from a
+clean checkout:
 
 ```sh
 python -m pip install -r requirements-site.txt
@@ -127,15 +130,13 @@ gnome-site . _site --title pr-gnome \
   --revision "$(git rev-parse HEAD)" --content site.toml
 ```
 
-The output directory must be new or empty. The Website workflow runs the source
-checks and builds a downloadable `pr-gnome-site` artifact for each pull request.
-Download and extract that artifact, then open `index.html` to review it.
-Changes on `master` replace the current GitHub Pages site after the checks pass.
-The repository's Pages publishing source is GitHub Actions.
-
-The gnome's maintainers own `site.toml`, the renderer pin and the workflow.
-Review the preview when changing standards or upgrading the renderer. Source
-links identify the rendered commit; policy routes and clause anchors stay stable.
+The output directory must be new or empty. The Website workflow runs
+the tests and builds a `pr-gnome-site` artifact for each pull request,
+which is downloaded and opened at `index.html` to see the change. A
+change merged to `master` replaces the published site once the tests
+pass. Source links on the site name the commit it was rendered from,
+and the addresses of policies and the anchors of clauses stay the same
+from one render to the next.
 
 ## Licence
 
