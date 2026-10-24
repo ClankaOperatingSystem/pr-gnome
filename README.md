@@ -1,9 +1,9 @@
 # pr-gnome
 
 Standards for written work: commit messages, pull request descriptions,
-comments and documents. A doctrine of clauses, a policy for each
-judgement, cases that test the judge, one check that needs no model, and
-a skill that writes to the doctrine.
+comments and documents. This repository holds a doctrine of clauses, a
+policy for each judgement, cases that test the judge, the checks that
+need no model, and a skill that writes to the doctrine.
 
 This repository is a gnome: a methodology that also holds a doctrine,
 its policies and its cases. bugflow's
