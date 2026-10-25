@@ -3,6 +3,7 @@ summary: What a change says about itself: its description, its commits, its scop
 subjects: pull-request/description, pull-request/commits, pull-request/scope, pull-request/patches
 policies: CM-01, CM-02, ED-01, ED-02, ED-03, ED-04, ED-05, PR-04, SC-01, SC-02
 checks: em-dash ED-04 VOICE-21
+site: https://clankaoperatingsystem.github.io/pr-gnome/
 ---
 
 This file describes the gnome to whatever reads it. The lines above
@@ -25,3 +26,5 @@ reads the comments and docstrings they add.
   the policy it answers and the clause its findings cite. ED-04, the em
   dash check, has no policy file; in a garden the script
   `skills/pr-gnome-write/scripts/check-em-dash` answers it under the lint.
+- `site` is the address these pages are published at. A server's comment
+  links each clause it cites to the clause's section of the doctrine page.
