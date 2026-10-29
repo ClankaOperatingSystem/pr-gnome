@@ -48,6 +48,11 @@ anything a reviewer would otherwise have to reverse-engineer from the diff.
 It matches the diff: it does not describe work that is not there, and
 it does not omit work that is.
 
+A description runs to 200 words at most, outside code blocks. A reviewer
+who must read more before the diff reads less of it. What a longer
+description would hold belongs in the commit bodies, or in the documents
+the change edits.
+
 **GIT-6. No way round a gate.** Never use `--no-verify`, `--force` against a shared branch, or any
 other route around a gate. A gate that is wrong is fixed in its own pull
 request.
