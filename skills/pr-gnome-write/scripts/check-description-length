@@ -1,0 +1,19 @@
+#!/bin/sh
+# check-description-length FILE... | -
+# Report each description, a file given or the text on standard input
+# with -, whose prose outside code blocks runs over the word limit of
+# GIT-5, as FILE: MESSAGE; exit 0 clean, 1 findings, 2 could not check.
+real=$0
+while [ -L "$real" ]; do
+  link=$(readlink "$real")
+  case $link in
+    /*) real=$link ;;
+    *) real=$(dirname "$real")/$link ;;
+  esac
+done
+D=$(cd "$(dirname "$real")" && pwd)
+if [ $# -eq 0 ]; then
+  echo "usage: check-description-length FILE... | -" >&2
+  exit 2
+fi
+awk -v limit=200 -f "$D/lib/description-length.awk" "$@"
