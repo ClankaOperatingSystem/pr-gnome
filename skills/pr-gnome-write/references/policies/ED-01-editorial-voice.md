@@ -132,6 +132,18 @@ cases. Not measured.
 - 2026-10-16: a seeded case and a clean case for a phrase that hangs off
 the wrong noun, which the judge passed on a real pull request. Not
 measured.
+- 2026-11-09, 21 clean and 22 seeded cases, one run each at temperature
+0, on GoSource's binding:
+  - claude-haiku-4-5, the medium class: 18 of 21 clean, 19 of 22
+  seeded, 8 of 43 wrong. It found garden paths (VOICE-28) where there
+  are none and missed them where there are, and flagged VOICE-15 on
+  decision records already named before their ids.
+  - claude-sonnet-5, the large class: 21 of 21 clean, 16 of 22 seeded,
+  7 of 43 wrong. It raised nothing on a clean case, and missed three
+  garden paths, two plan or backlog item ids (VOICE-15) and one route
+  to the change (VOICE-19).
+  - The policy moved to the large class. A finding the author cannot
+  trust costs more than one the judge misses.
 
 Known weakness: on 2026-09-16 its findings on real pull requests were
 read and about half were wrong. Fourteen of the twenty-four under
