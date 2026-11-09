@@ -52,8 +52,9 @@ either. "Untestably small" and "rate limited" say what they mean, where
 - A bold label that starts a paragraph or a list item is a heading, not
 emphasis.
 - A pull request or issue number such as #28 is a link on the forge, not
-an unresolved reference, and neither is a sentence made of one: "Stacked
-on #59." and "Follows #76." are links.
+an unresolved reference, wherever it stands in a sentence. "Stacked on
+#59.", "Follows #76." and "Supersedes #383, with one phrase reworded."
+are links. Never report a #N under VOICE-15.
 - A filler opener (VOICE-9) is a word or phrase that can be deleted from
 the start of a sentence without losing meaning, such as "Basically,".
 Words that name the change, such as "This adds", are not filler.
