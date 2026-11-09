@@ -1,7 +1,7 @@
 policy_id: ED-01
 subject: description
 summary: The title and description are plain and factual
-model_class: medium
+model_class: large
 evidence: description
 quotable_name: title or description
 graded: yes
