@@ -75,7 +75,8 @@ Say what the code does.
 the thing it names. Do not write "satisfies FR-15", "per ADR-004", "blocked on
 question 9", "lands in 0.5" and leave the reader to look it up. Name the
 thing, then cite the id if the id is useful: "the exception registry (FR-15)".
-This matters most in text written for someone who is not reading the
+A pull request or issue number such as #383 is named: the forge links it
+and shows its title. This matters most in text written for someone who is not reading the
 specification: pull request descriptions, comments, findings the system
 emits, and anything addressed to a person.
 
