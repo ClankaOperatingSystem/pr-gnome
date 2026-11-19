@@ -4,6 +4,27 @@ Applies to prose everywhere: the project's own documents, commit messages,
 pull request descriptions, comments, docstrings, and any text the system
 itself emits.
 
+The three clauses that follow come before every other clause. The
+other clauses make natural English shorter and more exact. They never
+excuse an unnatural sentence. When a sentence keeps another clause only
+by becoming unnatural, write it again in different words. If no natural
+sentence keeps the other clause, keep the natural sentence.
+
+**VOICE-30. Natural English.** Write each sentence as a careful person
+would say it to a colleague. The test is to read the sentence aloud. If
+no one would say it, write it again. A statement in running prose is a
+whole sentence. A noun phrase that ends in a full stop is not a
+sentence.
+
+**VOICE-31. Ordinary phrasing.** Use the phrase that people ordinarily
+use for the thing. A person holds a role, a team makes a decision, and
+a question is still open. Do not build an unusual phrase to avoid a
+common one.
+
+**VOICE-32. Clear reference.** The reader can tell at once what each
+"it", "its", "this" and "that" refers to. Where two nouns could fit,
+repeat the noun.
+
 **VOICE-1. Plain register.** Write as one engineer to another: factual and
 short. Do not persuade.
 

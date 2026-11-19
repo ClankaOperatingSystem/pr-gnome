@@ -37,6 +37,11 @@ sent. Each policy is applied as a rewrite:
 8. ED-04: no em dashes; `scripts/check-em-dash -` finds them in text on
    standard input, and `scripts/check-em-dash FILE` in a file.
 
+9. ED-06, natural English: read each sentence aloud, and write it again
+   if no one would say it. Use the ordinary phrase, and make sure the
+   reader can tell what each "it" and "its" refers to. This policy comes
+   before the others: none of them excuses an unnatural sentence.
+
 Then strike each sentence in turn. If no fact leaves with it, it stays
 struck.
 
