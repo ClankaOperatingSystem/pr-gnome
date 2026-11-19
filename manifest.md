@@ -1,7 +1,7 @@
 agent_id: pull-request
 summary: What a change says about itself: its description, its commits, its scope
 subjects: pull-request/description, pull-request/commits, pull-request/scope, pull-request/patches
-policies: CM-01, CM-02, ED-01, ED-02, ED-03, ED-04, ED-05, PR-04, SC-01, SC-02
+policies: CM-01, CM-02, ED-01, ED-02, ED-03, ED-04, ED-05, ED-06, PR-04, SC-01, SC-02
 checks: em-dash ED-04 VOICE-21
 site: https://clankaoperatingsystem.github.io/pr-gnome/
 ---
